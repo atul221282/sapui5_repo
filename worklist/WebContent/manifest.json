@@ -39,7 +39,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "worklist.view.View1",
+			"viewName": "worklist.view.Controls",
 			"type": "XML"
 		},
 		"dependencies": {
