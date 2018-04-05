@@ -39,7 +39,7 @@
 
 	"sap.ui5": {
 		"rootView": {
-			"viewName": "worklist.view.Controls",
+			"viewName": "worklist.view.View1",
 			"type": "XML"
 		},
 		"dependencies": {
@@ -70,6 +70,40 @@
 			"css": [{
 				"uri": "css/style.css"
 			}]
+		},
+		"routing":{
+			"config": {
+	            "routerClass": "sap.m.routing.Router",
+	            "viewType": "XML",
+	            "viewPath": "worklist.view",
+	            "targetAggregation": "pages",
+	            "transition": "slide"
+	         },
+	         "routes": [{
+	            "pattern": "",
+				"name": "View1",
+				"view": "View1",
+				"targetAggregation": "pages",
+				"controlId": "app"
+	         },{
+	            "pattern": "Controls",
+				"name": "Controls",
+				"view": "Controls",
+				"targetAggregation": "pages",
+				"controlId": "app"
+	         },{
+	            "pattern": "SimpleForm",
+				"name": "SimpleForm",
+				"view": "SimpleForm",
+				"targetAggregation": "pages",
+				"controlId": "app"
+	         }],
+	         "targets": {
+	            "home": {
+	               "viewName": "View1",
+	               "viewLevel" : 1
+	            }
+	         }
 		}
 	}
 }

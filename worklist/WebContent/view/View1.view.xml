@@ -1,10 +1,13 @@
-<mvc:View controllerName="worklist.controller.View1" 
-xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+<mvc:View controllerName="worklist.controller.View1"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" xmlns="sap.m">
-	<App>
+	<App id="app">
 		<pages>
 			<Page title="{i18n>title}">
-				<content></content>
+				<content>
+					<Button press="onControl" text="Controls"></Button>
+					<Button press="onSimpleForm" text="Simple Form"></Button>
+				</content>
 			</Page>
 		</pages>
 	</App>
