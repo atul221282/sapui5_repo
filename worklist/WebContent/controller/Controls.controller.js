@@ -1,6 +1,6 @@
-(function() {
-
+(function () {
 	"use strict";
+
 	var ctrl = undefined;
 	var messageToast = undefined;
 	var actionSheet = undefined;
@@ -13,7 +13,7 @@
 
 	function actionSelected(oEvent) {
 		messageToast.show("Selected action is '" + oEvent.getSource().getText()
-				+ "'");
+			+ "'");
 	}
 
 	function onAfterRendering() {
@@ -26,17 +26,17 @@
 	function controlsController(Controller, MessageToast) {
 		messageToast = MessageToast;
 		ctrl = Controller.extend("worklist.controller.Controls", {
-			varValue : "FormLayout1Controller",
-			handleOpen : handleOpen,
-			actionSelected : actionSelected,
-			onAfterRendering : onAfterRendering,
+			varValue: "FormLayout1Controller",
+			handleOpen: handleOpen,
+			actionSelected: actionSelected,
+			onAfterRendering: onAfterRendering,
 		});
 
 		return ctrl;
 	}
 
 	// inject dependency in define method like controller below
-	sap.ui.define([ 'sap/ui/core/mvc/Controller', 'sap/m/MessageToast' ],
-			controlsController);
+	sap.ui.define(['sap/ui/core/mvc/Controller', 'sap/m/MessageToast'],
+		controlsController);
 
 }());
