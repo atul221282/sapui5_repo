@@ -1,0 +1,59 @@
+<sap.ui.core.mvc:View controllerName="worklist.controller.SimpleForm"
+	height="100%" xmlns="sap.m" xmlns:sap.ui.layout="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
+	xmlns:sap.ui.core.mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout">
+	<Page title="Simple Form 1">
+		<content>
+			<f:SimpleForm id="SimpleFormChange480_Trial" editable="true"
+				layout="ResponsiveGridLayout" title="Address" labelSpanXL="4"
+				labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+				emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+				columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false">
+				<f:content>
+					<core:Title text="Office" />
+					<Label text="Name" />
+					<Input value="{SupplierName}" />
+					<Label text="Street/No." />
+					<Input value="18">
+					</Input>
+					<Input value="{HouseNumber}">
+						<layoutData>
+							<l:GridData span="XL2 L3 M3 S4" />
+						</layoutData>
+					</Input>
+					<Label text="ZIP Code/City" />
+					<Input value="{ZIPCode}">
+						<layoutData>
+							<l:GridData span="XL2 L3 M3 S4" />
+						</layoutData>
+					</Input>
+					<Input value="{City}" />
+					<Label text="Country" />
+					<Select id="country" selectedKey="{Country}">
+						<items>
+							<core:Item text="England" key="England" />
+							<core:Item text="Germany" key="Germany" />
+							<core:Item text="USA" key="USA" />
+						</items>
+					</Select>
+					<core:Title text="Online" />
+					<Label text="Web" />
+					<Input value="{Url}" />
+					<Label text="Twitter" />
+					<Input value="{Twitter}" />
+					<Label text="Email" />
+					<Input value="{Email}" type="Email" />
+					<Label text="Tel." />
+					<Input value="{Tel}" type="Tel" />
+					<Label text="SMS" />
+					<Input value="{Sms}" type="Tel" />
+					<core:Title text="Other" />
+					<Label text="Rating" />
+					<RatingIndicator value="{Rating}" />
+					<Label text="Disposable" />
+					<ProgressIndicator percentValue="{Disposable}" />
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</Page>
+</sap.ui.core.mvc:View>
