@@ -12,17 +12,17 @@
 				<f:content>
 					<core:Title text="Office" />
 					<Label text="Name" />
-					<Input value="{SupplierName}" />
+					<Input value="{/data/0/title}" />
 					<Label text="Street/No." />
-					<Input value="18">
+					<Input value="{/data/0/url}">
 					</Input>
-					<Input value="{HouseNumber}">
+					<Input value="{/data/0/albumId}">
 						<layoutData>
 							<l:GridData span="XL2 L3 M3 S4" />
 						</layoutData>
 					</Input>
 					<Label text="ZIP Code/City" />
-					<Input value="{ZIPCode}">
+					<Input value="{/data/0/id}">
 						<layoutData>
 							<l:GridData span="XL2 L3 M3 S4" />
 						</layoutData>

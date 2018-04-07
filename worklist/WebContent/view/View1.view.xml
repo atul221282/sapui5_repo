@@ -5,7 +5,7 @@
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
-					<Button press="onControl" text="Controls"></Button>
+					<Button press="onControl" text="Controls Form"></Button>
 					<Button press="onSimpleForm" text="Simple Form"></Button>
 				</content>
 			</Page>
