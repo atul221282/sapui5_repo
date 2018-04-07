@@ -1,35 +1,26 @@
-//webeclipse
 //https://dzone.com/articles/webinar-recap-learning-advanced-angular-component
-(function() {
-
-	var dataService = undefined;
+// https://sapui5.hana.ondemand.com/#/topic/91f087396f4d1014b6dd926db0e91070
+(function (viewModel) {
 
 	function onControl() {
-		let router = sap.ui.core.UIComponent.getRouterFor(this);
-
-		router.navTo("Controls");
+		viewModel.onControl(this);
 	}
 
 	function onSimpleForm() {
-		let router = sap.ui.core.UIComponent.getRouterFor(this);
-		dataService.asyncCall();
-		router.navTo("SimpleForm");
+		viewModel.onSimpleForm(this);
 	}
 
-	function viewController(controller, messageToast, service) {
-		dataService = service;
+	function viewController(controller, vm) {
+		viewModel = vm;
 		let ctrl = controller.extend("worklist.controller.View1", {
-			varValue : "View1Controller",
-			onControl : onControl,
-			onSimpleForm : onSimpleForm
+			varValue: "View1Controller",
+			onControl: onControl,
+			onSimpleForm: onSimpleForm
 		});
-
 		return ctrl;
 	}
+	sap.ui.define(["sap/ui/core/mvc/Controller",
+		"../viewmodel/view1-view-model"
+	], viewController);
 
-	sap.ui.define([ 'sap/ui/core/mvc/Controller',
-		'sap/m/MessageToast',
-		'../service/data-service' ], viewController);
 }());
-
-// https://sapui5.hana.ondemand.com/#/topic/91f087396f4d1014b6dd926db0e91070

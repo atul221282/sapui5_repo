@@ -1,35 +1,47 @@
 <!DOCTYPE HTML>
 <html>
 
-	<head>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta charset="UTF-8">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta charset="UTF-8">
 
-		<title>worklist</title>
+	<title>worklist</title>
 
-		<script id="sap-ui-bootstrap"
-			src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js"
-			data-sap-ui-libs="sap.m"
-			data-sap-ui-theme="sap_belize"
-			data-sap-ui-compatVersion="edge"
-			data-sap-ui-resourceroots='{"worklist": ""}'>
-		</script>
+	
+	<script id="sap-ui-bootstrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" 
+	data-sap-ui-libs="sap.m"
+	 data-sap-ui-theme="sap_belize" data-sap-ui-compatVersion="edge" data-sap-ui-resourceroots='{"worklist": ""}'>
+	</script>
+	<!-- <script id="sap-ui-bootstrap" src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m"
+	 data-sap-ui-theme="sap_belize" data-sap-ui-compatVersion="edge" data-sap-ui-resourceroots='{"worklist": ""}'>
+	</script> -->
 
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
-		<script>
-			sap.ui.getCore().attachInit(function() {
-				new sap.m.Shell({
-					app: new sap.ui.core.ComponentContainer({
-						height : "100%",
-						name : "worklist"
-					})
-				}).placeAt("content");
+	<script>
+		sap.ui.getCore().attachInit(function () {
+			var ComponentContainer = new sap.ui.core.ComponentContainer({
+				height: "100%"
 			});
-		</script>
-	</head>
 
-	<body class="sapUiBody" id="content">
-	</body>
+			new sap.m.Shell({
+				app: ComponentContainer,
+				showLogout: true
+			}).placeAt("content");
+
+			var oComponent = sap.ui.component({
+				id: "comp",
+				name: "worklist",
+				manifestFirst: true,
+				async: true
+			}).then(function (oComponent) {
+				ComponentContainer.setComponent(oComponent);
+			});
+		});
+	</script>
+</head>
+
+<body class="sapUiBody" id="content">
+</body>
 
 </html>

@@ -1,43 +1,49 @@
-<sap.ui.core.mvc:View controllerName="worklist.controller.SimpleForm"
-	height="100%" xmlns="sap.m" xmlns:sap.ui.layout="sap.ui.layout"
-	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core"
-	xmlns:sap.ui.core.mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout">
+<sap.ui.core.mvc:View controllerName="worklist.controller.SimpleForm" height="100%" 
+	xmlns="sap.m" 
+	xmlns:sap.ui.layout="sap.ui.layout" 
+	xmlns:f="sap.ui.layout.form" 
+	xmlns:fi="sap.f" 
+	xmlns:core="sap.ui.core" 
+	xmlns:sap.ui.core.mvc="sap.ui.core.mvc" 
+	xmlns:l="sap.ui.layout">
 	<Page title="Simple Form 1">
 		<content>
-			<f:SimpleForm id="SimpleFormChange480_Trial" editable="true"
-				layout="ResponsiveGridLayout" title="Address" labelSpanXL="4"
-				labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
-				emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
-				columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false">
+			<f:SimpleForm id="SimpleFormChange480_Trial" editable="true" layout="ResponsiveGridLayout" title="Address" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false">
 				<f:content>
 					<core:Title text="Office" />
-					<Label text="Name" />
-					<Input value="{/data/0/title}" />
+					<Label text="{main>/selectedTodo/name}" />
+					<Input value="{main>/selectedTodo/name}" valueLiveUpdate="true"/>
 					<Label text="Street/No." />
-					<Input value="{/data/0/url}">
-					</Input>
-					<Input value="{/data/0/albumId}">
+					<Input value="{main>/selectedTodo/company}"></Input>
+					<Input value="{main>/selectedTodo/email}">
 						<layoutData>
 							<l:GridData span="XL2 L3 M3 S4" />
 						</layoutData>
 					</Input>
 					<Label text="ZIP Code/City" />
-					<Input value="{/data/0/id}">
+					<Input value="{main>/selectedTodo/age}">
 						<layoutData>
 							<l:GridData span="XL2 L3 M3 S4" />
 						</layoutData>
 					</Input>
 					<Input value="{City}" />
 					<Label text="Country" />
-					<Select id="country" selectedKey="{Country}">
-						<items>
-							<core:Item text="England" key="England" />
-							<core:Item text="Germany" key="Germany" />
-							<core:Item text="USA" key="USA" />
-						</items>
+					<Select id="select" forceSelection="false" selectedKey="{main>/selectedTodo/_id}" items="{
+								path: 'todos>/todoList',
+								sorter: { path: 'name' }
+							}">
+						<core:Item key="{todos>_id}" text="{todos>name}" />
 					</Select>
 					<core:Title text="Online" />
 					<Label text="Web" />
+					<ComboBox items="{
+						path: 'commentModel>/commentList',
+						sorter: { path: 'email' }}"><core:Item key="{commentModel>id}" text="{commentModel>email}" /></ComboBox>
+					<!-- <ComboBox items="{
+						path: 'commentModel>/commentList',
+						sorter: { path: 'email' }, suspended: true}" loadItems="handleLoadItems">
+						<core:Item key="{commentModel>id}" text="{commentModel>email}"/>
+					</ComboBox> -->
 					<Input value="{Url}" />
 					<Label text="Twitter" />
 					<Input value="{Twitter}" />
@@ -49,9 +55,12 @@
 					<Input value="{Sms}" type="Tel" />
 					<core:Title text="Other" />
 					<Label text="Rating" />
-					<RatingIndicator value="{Rating}" />
+					<RatingIndicator value="{main>/ratings}" />
 					<Label text="Disposable" />
 					<ProgressIndicator percentValue="{Disposable}" />
+					<fi:Avatar src="{main>/avUrl}" displaySize="XL" displayShape="Square"></fi:Avatar>
+					<Text text="Avatar of a product" class="sapUiSmallMarginTop"></Text>
+					<Button press="save" text="Save"></Button>
 				</f:content>
 			</f:SimpleForm>
 		</content>
