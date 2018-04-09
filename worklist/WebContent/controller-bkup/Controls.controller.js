@@ -1,5 +1,5 @@
-var controller;
-(function (controller) {
+(function () {
+    "use strict";
     var ctrl = undefined;
     var messageToast = undefined;
     var actionSheet = undefined;
@@ -8,7 +8,8 @@ var controller;
         actionSheet.openBy(oButton);
     }
     function actionSelected(oEvent) {
-        messageToast.show("Selected action is  " + oEvent.getSource().getText());
+        messageToast.show("Selected action is '" + oEvent.getSource().getText()
+            + "'");
     }
     function onAfterRendering() {
         if (!actionSheet) {
@@ -27,5 +28,5 @@ var controller;
         return ctrl;
     }
     sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast"], controlsController);
-})(controller || (controller = {}));
+})();
 //# sourceMappingURL=Controls.controller.js.map
