@@ -12,8 +12,7 @@
 	}
 
 	function actionSelected(oEvent) {
-		messageToast.show("Selected action is '" + oEvent.getSource().getText()
-			+ "'");
+		messageToast.show(`Selected action is ${oEvent.getSource().getText()}`);
 	}
 
 	function onAfterRendering() {
