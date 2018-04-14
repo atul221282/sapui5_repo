@@ -1,37 +1,24 @@
-//https://jsonplaceholder.typicode.com/
-
-(function () {
-    "use strict";
-    sap.ui.define(["sap/m/MessageToast",
-        "../service/simple-form-data-service",
-    ], function (messageToast) {
-
-        const navigate = (ctrl, messageToast) => ({
-            navigateTo(url, message) {
-                const router = sap.ui.core.UIComponent.getRouterFor(ctrl);
-                setTimeout(() => {
-                    messageToast.show(message);
-                }, 100);
-                router.navTo(url);
-            }
-        });
-
-        class View1ViewModel {
-
-            constructor(messageToast) {
-                this.messageToast = messageToast;
-            }
-
-            onControl(ctrl) {
-                navigate(ctrl, this.messageToast).navigateTo("Controls", "Navigating to control route");
-            }
-
-            onSimpleForm(ctrl) {
-                navigate(ctrl, this.messageToast).navigateTo("SimpleForm", "Navigating to simple form route");
-            }
+var viewmodel;
+(function (viewmodel) {
+    var View1ViewModelImpl = (function () {
+        function View1ViewModelImpl(messageToast) {
+            this.messageToast = messageToast;
         }
-
-        return new View1ViewModel(messageToast);
-    });
-
-}());
+        View1ViewModelImpl.prototype.onControl = function (ctrl) {
+            navigate(ctrl, this.messageToast).navigateTo("Controls", "Navigating to control route");
+        };
+        View1ViewModelImpl.prototype.onSimpleForm = function (ctrl) {
+            navigate(ctrl, this.messageToast).navigateTo("SimpleForm", "Navigating to simple form route");
+        };
+        return View1ViewModelImpl;
+    }());
+    var navigate = function (ctrl, messageToast) { return ({
+        navigateTo: function (url, message) {
+            var router = sap.ui.core.UIComponent.getRouterFor(ctrl);
+            router.navTo(url);
+        }
+    }); };
+    sap.ui.define(["sap/m/MessageToast",
+        "../service/simple-form-data-service"], function (m, service) { return new View1ViewModelImpl(m); });
+})(viewmodel || (viewmodel = {}));
+//# sourceMappingURL=view1-view-model.js.map
