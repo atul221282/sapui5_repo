@@ -1,28 +1,23 @@
-(function () {
-    var ViewController = (function () {
-        function ViewController(ctrl, v) {
-            this.ctrl = ctrl;
-            this.v = v;
-            ViewController.that = this;
-        }
-        ViewController.prototype.onControl = function () {
-            ViewController.that.v.onControl(this);
-        };
-        ViewController.prototype.onSimpleForm = function () {
-            ViewController.that.v.onSimpleForm(this);
-        };
-        ViewController.prototype.getController = function () {
-            var ctrl = this.ctrl.extend("worklist.controller.View1", {
-                varValue: "View1Controller",
-                onControl: this.onControl,
-                onSimpleForm: this.onSimpleForm
-            });
-            return ctrl;
-        };
-        return ViewController;
-    }());
-    sap.ui.define(["sap/ui/core/mvc/Controller",
-        "../viewmodel/view1-view-model"
-    ], function (ctrl, v) { return new ViewController(ctrl, v).getController(); });
-})();
+sap.ui.define(["sap/ui/core/mvc/Controller"], getController);
+function getRouter(ctrl) {
+    var router = sap.ui.core.UIComponent.getRouterFor(ctrl);
+    return router;
+}
+function onControl() {
+    getRouter(this).navTo("Controls");
+}
+function onSimpleForm() {
+    getRouter(this).navTo("SimpleForm");
+}
+function onSplitApp() {
+    getRouter(this).navTo("oapp");
+}
+function getController(ctrl) {
+    return ctrl.extend("worklist.controller.View1", {
+        varValue: "View1Controller",
+        onControl: onControl,
+        onSimpleForm: onSimpleForm,
+        onSplitApp: onSplitApp
+    });
+}
 //# sourceMappingURL=View1.controller.js.map
