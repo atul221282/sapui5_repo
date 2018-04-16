@@ -1,0 +1,11 @@
+<mvc:View controllerName="sap.ui.demo.toolpageapp.controller.User" 
+    xmlns:html="http://www.w3.org/1999/xhtml" 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+    xmlns="sap.m">
+    <Page title="User">
+        <content>
+            <Button press="onControl" text="Controls Form"></Button>
+            <Button press="onSimpleForm" text="Simple Form"></Button>
+        </content>
+    </Page>
+</mvc:View>
