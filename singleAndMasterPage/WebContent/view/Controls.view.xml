@@ -1,11 +1,11 @@
-<mvc:View controllerName="worklist.controller.Controls"
-	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m">
+<mvc:View controllerName="worklist.controller.Controls" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m">
 	<App>
 		<pages>
-			<Page title="Form Controls">
-				<Button text="Open Action Sheet" press="handleOpen"
-					class="sapUiSmallMarginBottom" />
+			<Page title="Form Controls" showNavButton="true" navButtonPress="onNavBack">
+				<Button text="Open Action Sheet" press="handleOpen" class="sapUiSmallMarginBottom" />
 			</Page>
 		</pages>
 	</App>

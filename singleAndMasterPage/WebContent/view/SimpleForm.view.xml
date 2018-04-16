@@ -6,7 +6,7 @@
 	xmlns:core="sap.ui.core" 
 	xmlns:sap.ui.core.mvc="sap.ui.core.mvc" 
 	xmlns:l="sap.ui.layout">
-	<Page title="Simple Form 1">
+	<Page title="Simple Form 1" showNavButton="true" navButtonPress="onNavBack">
 		<content>
 			<f:SimpleForm id="SimpleFormChange480_Trial" editable="true" layout="ResponsiveGridLayout" title="Address" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false">
 				<f:content>
@@ -38,12 +38,12 @@
 					<Label text="Web" />
 					<ComboBox items="{
 						path: 'commentModel>/commentList',
-						sorter: { path: 'email' }}"><core:Item key="{commentModel>id}" text="{commentModel>email}" /></ComboBox>
+						sorter: { path: 'email' }}">
+						<core:Item key="{commentModel>id}" text="{commentModel>email}" />
+					</ComboBox>
 					<!-- <ComboBox items="{
 						path: 'commentModel>/commentList',
-						sorter: { path: 'email' }, suspended: true}" loadItems="handleLoadItems">
-						<core:Item key="{commentModel>id}" text="{commentModel>email}"/>
-					</ComboBox> -->
+						sorter: { path: 'email' }, suspended: true}" loadItems="handleLoadItems"><core:Item key="{commentModel>id}" text="{commentModel>email}"/></ComboBox> -->
 					<Input value="{Url}" />
 					<Label text="Twitter" />
 					<Input value="{Twitter}" />

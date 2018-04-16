@@ -7,6 +7,7 @@
 				<content>
 					<Button press="onControl" text="Controls Form"></Button>
 					<Button press="onSimpleForm" text="Simple Form"></Button>
+					<Button press="onSplitApp" text="Split App"></Button>
 				</content>
 			</Page>
 		</pages>
