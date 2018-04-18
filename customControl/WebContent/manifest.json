@@ -83,50 +83,64 @@
 				"clearTarget": false
 			},
 			"routes": [{
-				"pattern": "",
-				"name": "View1",
-				"view": "View1",
-				"targetControl": "app",
-				"targetAggregation": "pages"
-			}, {
-				"pattern": "Controls",
-				"name": "Controls",
-				"view": "Controls",
-				"targetControl": "app",
-				"targetAggregation": "pages"
-			}, {
-				"pattern": "SimpleForm",
-				"name": "SimpleForm",
-				"view": "SimpleForm",
-				"targetControl": "app",
-				"targetAggregation": "pages"
-			}, {
-				"pattern": "splitApp",
-				"name": "oapp",
-				"view": "oapp",
-				"targetAggregation": "pages",
-				"targetControl": "app",
-				"subroutes": [{
-					"pattern": "splitApp/",
-					"name": "omasterpage",
-					"view": "omasterpage",
-					"targetAggregation": "masterPages",
-					"targetControl": "SplitApp",
+					"pattern": "",
+					"name": "View1",
+					"view": "View1",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				}, {
+					"pattern": "Controls",
+					"name": "Controls",
+					"view": "Controls",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				}, {
+					"pattern": "grid-table/GridTable",
+					"name": "grid-table/GridTable",
+					"view": "grid-table/GridTable",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				}, {
+					"pattern": "grid-table/OrderTable",
+					"name": "grid-table/OrderTable",
+					"view": "grid-table/OrderTable",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				},
+				{
+					"pattern": "SimpleForm",
+					"name": "SimpleForm",
+					"view": "SimpleForm",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				}, {
+					"pattern": "splitApp",
+					"name": "oapp",
+					"view": "oapp",
+					"targetAggregation": "pages",
+					"targetControl": "app",
 					"subroutes": [{
-							"pattern": "splitApp/",
-							"name": "odetailpage",
-							"view": "odetailpage",
-							"targetAggregation": "detailPages"
-						},
-						{
-							"pattern": "itemDetail/",
-							"name": "odetailpage2",
-							"view": "odetailpage2",
-							"targetAggregation": "detailPages"
-						}
-					]
-				}]
-			}],
+						"pattern": "splitApp/",
+						"name": "omasterpage",
+						"view": "omasterpage",
+						"targetAggregation": "masterPages",
+						"targetControl": "SplitApp",
+						"subroutes": [{
+								"pattern": "splitApp/",
+								"name": "odetailpage",
+								"view": "odetailpage",
+								"targetAggregation": "detailPages"
+							},
+							{
+								"pattern": "itemDetail/",
+								"name": "odetailpage2",
+								"view": "odetailpage2",
+								"targetAggregation": "detailPages"
+							}
+						]
+					}]
+				}
+			],
 			"targets": {
 				"view1": {
 					"viewName": "View1",

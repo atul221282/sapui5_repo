@@ -12,12 +12,19 @@ function onSimpleForm() {
 function onSplitApp() {
     getRouter(this).navTo("oapp");
 }
+function onGridTable() {
+    getRouter(this).navTo("grid-table/GridTable");
+}
+function onOrderTable() {
+    getRouter(this).navTo("grid-table/OrderTable");
+}
 function getController(ctrl) {
     return ctrl.extend("worklist.controller.View1", {
         varValue: "View1Controller",
         onControl: onControl,
         onSimpleForm: onSimpleForm,
-        onSplitApp: onSplitApp
+        onSplitApp: onSplitApp,
+        onGridTable: onGridTable
     });
 }
 //# sourceMappingURL=View1.controller.js.map

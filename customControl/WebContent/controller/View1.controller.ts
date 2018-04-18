@@ -16,12 +16,21 @@ function onSplitApp() {
     getRouter(this).navTo("oapp");
 }
 
+function onGridTable() {
+    getRouter(this).navTo("grid-table/GridTable")
+}
+
+function onOrderTable() {
+    getRouter(this).navTo("grid-table/OrderTable")
+}
+
 // Whatever is here will be executed as soon as the script is loaded.
 function getController(ctrl: any) {
     return ctrl.extend("worklist.controller.View1", {
         varValue: "View1Controller",
         onControl: onControl,
         onSimpleForm: onSimpleForm,
-        onSplitApp: onSplitApp
+        onSplitApp: onSplitApp,
+        onGridTable: onGridTable
     });
 }
