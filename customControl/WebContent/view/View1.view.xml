@@ -8,6 +8,8 @@
 					<Button press="onControl" text="Controls Form"></Button>
 					<Button press="onSimpleForm" text="Simple Form"></Button>
 					<Button press="onSplitApp" text="Split App"></Button>
+					<Button press="onGridTable" text="Grid Table"></Button>
+					<Button press="onOrderTable" text="Order Table"></Button>
 				</content>
 			</Page>
 		</pages>

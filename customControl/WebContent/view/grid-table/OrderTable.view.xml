@@ -1,0 +1,58 @@
+<mvc:View controllerName="worklist.controller.grid-table.OrderTable" 
+    xmlns="sap.ui.table" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:u="sap.ui.unified" 
+    xmlns:c="sap.ui.core" 
+    xmlns:m="sap.m" height="100%">
+    <m:Page showHeader="false" enableScrolling="false" class="sapUiContentPadding">
+        <m:content>
+            <Table id="orderTable" rows="{
+					path: '/data',
+					parameters: {operationMode: 'Server'}
+				}" threshold="15" enableBusyIndicator="true" title="Order" selectionMode="MultiToggle">
+                <noData>
+                    <m:BusyIndicator class="sapUiMediumMargin"/>
+                </noData>
+                <columns>
+                    <Column width="11rem">
+                        <m:Label text="Order ID" />
+                        <template>
+                            <m:Text text="{OrderID}" wrapping="false" />
+                        </template>
+                    </Column>
+                    <Column width="11rem" hAlign="Center">
+                        <m:Label text="Delivery Date" />
+                        <template>
+                            <m:DatePicker value="{
+								path: 'OrderDate',
+								type: 'sap.ui.model.type.Date',
+								formatOptions: {source: {pattern: 'timestamp'}}
+							}"/>
+                        </template>
+                    </Column>
+                    <Column>
+                        <m:Label text="Employee" />
+                        <template>
+                            <m:Select width="100%" forceSelection="false" selectedKey="{EmployeeID}" items="{
+								path: '/employees', templateShareable : false,
+								sorter: { path: 'Name' } }">
+                                <c:Item key="{EmployeeID}" text="{Name}" />
+                            </m:Select>
+                        </template>
+                    </Column>
+                    <Column>
+                        <m:Label text="Employee Input" />
+                        <template>
+                            <m:Input type="Text" placeholder="Enter Product ..." showSuggestion="true" selectedKey="{EmployeeID}"
+                            suggest="handleSuggest" suggestionItems="{path:'/employees', templateShareable:false}">
+                                <m:suggestionItems>
+                                    <c:Item key="{EmployeeID}" text="{Name}" />
+                                </m:suggestionItems>
+                            </m:Input>
+                        </template>
+                    </Column>
+                </columns>
+            </Table>
+        </m:content>
+    </m:Page>
+</mvc:View>
