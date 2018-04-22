@@ -1,0 +1,17 @@
+<mvc:View controllerName="worklist.controller.View1"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m">
+	<App id="app">
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<Button press="onControl" text="Controls Form"></Button>
+					<Button press="onSimpleForm" text="Simple Form"></Button>
+					<Button press="onSplitApp" text="Split App"></Button>
+					<Button press="onGridTable" text="Grid Table"></Button>
+					<Button press="onOrderTable" text="Order Table"></Button>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
