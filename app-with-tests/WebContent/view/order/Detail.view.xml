@@ -1,0 +1,45 @@
+<sap.ui.core.mvc:View controllerName="worklist.controller.order.Detail" height="100%" 
+    xmlns="sap.m" 
+    xmlns:sap.ui.layout="sap.ui.layout" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns:fi="sap.f" 
+    xmlns:core="sap.ui.core" 
+    xmlns:sap.ui.core.mvc="sap.ui.core.mvc" 
+    xmlns:l="sap.ui.layout">
+    <Page title="Order For : {/data/OrderID}">
+        <content>
+            <f:SimpleForm id="SimpleFormChange480_Trial" editable="true" layout="ResponsiveGridLayout" title="Order" labelSpanXL="2" labelSpanL="3" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="3" columnsL="2" columnsM="2" singleContainerFullSize="false">
+                <f:content>
+                    <core:Title text="Order" />
+                    <Label text="OrderID" />
+                    <Input value="{/data/OrderID}" valueLiveUpdate="true"/>
+                    <Label text="OrderDate" labelFor="OrderDate"/>
+                    <DatePicker id="OrderDate" value="{
+                    path:'/data/OrderDate',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: {style: 'long',source: {pattern: 'timestamp'}}}" required="true" valueLiveUpdate="true" change="onOrderDateChange"/>
+                    <Label text="RequiredDate" />
+                    <DatePicker id="RequiredDate" value="{
+                    path:'/data/RequiredDate',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: {style: 'long',source: {pattern: 'timestamp'}}}" valueLiveUpdate="true"/>
+                    <Label text="ShippedDate" />
+                    <DatePicker value="{
+                    path:'/data/ShippedDate',
+                    type: 'sap.ui.model.type.Date',
+                    formatOptions: {style: 'long',source: {pattern: 'timestamp'}}}" valueLiveUpdate="true"/>
+                    <core:Title text="Ship Details" />
+                    <Label text="ShipName" labelFor="ShipName"/>
+                    <Input id="ShipName" value="{/data/ShipName}" required="true" valueLiveUpdate="true" liveChange="onShipNameChange"/>
+                    <Label text="ShipAddress" />
+                    <Input value="{/data/ShipAddress}" valueLiveUpdate="true"/>
+                    <Label text="ShipCity" />
+                    <Input value="{/data/ShipCity}" valueLiveUpdate="true"/>
+                    <Label text="ShipPostalCode" />
+                    <Input value="{/data/ShipPostalCode}" valueLiveUpdate="true"/>
+                    <Button text="Save" press="onSave" />
+                    </f:content>
+                </f:SimpleForm>
+            </content>
+        </Page>
+    </sap.ui.core.mvc:View>

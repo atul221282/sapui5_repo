@@ -1,0 +1,2 @@
+--url to run the test
+http://localhost:9000/webcontent/test/unit/unitTests.qunit.html
