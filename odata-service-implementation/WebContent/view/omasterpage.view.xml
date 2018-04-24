@@ -1,0 +1,11 @@
+<mvc:View 
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m" controllerName="worklist.controller.omasterpage" 
+    xmlns:html="http://www.w3.org/1999/xhtml">
+    <Page title="Master Page" showNavButton="true" navButtonPress="onNavBack">
+        <content>
+            <Text text="This is detail page"></Text>
+        </content>
+    </Page>
+</mvc:View>
