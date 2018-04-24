@@ -12,22 +12,6 @@
 		"sourceTemplate": {
 			"id": "ui5template.basicSAPUI5ApplicationProject",
 			"version": "1.40.12"
-		},
-		"dataSources": {
-			"Northwind": {
-				"uri": "https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0"
-				}
-			},
-			"NorthwindC": {
-				"uri": "https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0"
-				}
-			}
 		}
 	},
 
@@ -49,6 +33,7 @@
 		"supportedThemes": [
 			"sap_hcb",
 			"sap_belize"
+
 		]
 	},
 
@@ -79,17 +64,6 @@
 				"settings": {
 					"bundleName": "worklist.i18n.i18n"
 				}
-			},
-			"Northwind": {
-				"dataSource": "Northwind",
-				"settings": {
-					"headers": {
-						"Access-Control-Allow-Origin": "*"
-					}
-				}
-			},
-			"NorthwindC": {
-				"dataSource": "NorthwindC"
 			}
 		},
 		"resources": {
@@ -146,15 +120,7 @@
 					"view": "SimpleForm",
 					"targetControl": "app",
 					"targetAggregation": "pages"
-				},
-				{
-					"pattern": "odata/Form",
-					"name": "odata/Form",
-					"view": "odata/Form",
-					"targetControl": "app",
-					"targetAggregation": "pages"
-				},
-				{
+				}, {
 					"pattern": "splitApp",
 					"name": "oapp",
 					"view": "oapp",
