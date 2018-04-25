@@ -1,0 +1,24 @@
+<mvc:View controllerName="worklist.controller.Controls" 
+	xmlns:html="http://www.w3.org/1999/xhtml" 
+	xmlns:ac="worklist.controls" 
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" 
+	xmlns="sap.m">
+	<App>
+		<pages>
+			<Page title="Form Controls" showNavButton="true" navButtonPress="onNavBack">
+				<Button text="Open Action Sheet" press="handleOpen" class="sapUiSmallMarginBottom" />
+				<ac:AcInput placeholderSymbol = "_" url="getUrl"></ac:AcInput>
+				<MaskInput mask = "+61 CCC CCC CCC" placeholderSymbol = "_" placeholder = "Enter serial number">
+					<rules>
+						<MaskInputRule maskFormatSymbol = "C" regex = "[A-Z0-9]"/>
+					</rules>
+				</MaskInput>
+				<MaskInput mask = "+61 CCC CCC CCC" placeholderSymbol = "_" placeholder = "Enter serial number">
+					<rules>
+						<MaskInputRule maskFormatSymbol = "C" regex = "[0-9]"/>
+					</rules>
+				</MaskInput>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
