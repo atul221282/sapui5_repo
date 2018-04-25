@@ -1,0 +1,193 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "worklist",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"Northwind": {
+				"uri": "/destinations/northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"NorthwindC": {
+				"uri": "/destinations/northwind/V2/Northwind/NorthwindC.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "worklist.view.View1",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "worklist.i18n.i18n"
+				}
+			},
+			"Northwind": {
+				"dataSource": "Northwind",
+				"settings": {
+					"headers": {
+						"Access-Control-Allow-Origin": "*"
+					}
+				}
+			},
+			"NorthwindC": {
+				"dataSource": "NorthwindC"
+			}
+		},
+		"resources": {
+			"js": [{
+				"uri": "js/lodash.min.js"
+			}],
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "worklist.view",
+				"transition": "slide",
+				"clearTarget": false
+			},
+			"routes": [{
+					"pattern": "",
+					"name": "View1",
+					"view": "View1",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				}, {
+					"pattern": "Controls",
+					"name": "Controls",
+					"view": "Controls",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				}, {
+					"pattern": "grid-table/GridTable",
+					"name": "grid-table/GridTable",
+					"view": "grid-table/GridTable",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				}, {
+					"pattern": "grid-table/OrderTable",
+					"name": "grid-table/OrderTable",
+					"view": "grid-table/OrderTable",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				},
+				{
+					"pattern": "order/Detail/{ID}",
+					"name": "order/Detail",
+					"view": "order/Detail",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				},
+				{
+					"pattern": "SimpleForm",
+					"name": "SimpleForm",
+					"view": "SimpleForm",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				},
+				{
+					"pattern": "odata/Form",
+					"name": "odata/Form",
+					"view": "odata/Form",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				},
+				{
+					"pattern": "splitApp",
+					"name": "oapp",
+					"view": "oapp",
+					"targetAggregation": "pages",
+					"targetControl": "app",
+					"subroutes": [{
+						"pattern": "splitApp/",
+						"name": "omasterpage",
+						"view": "omasterpage",
+						"targetAggregation": "masterPages",
+						"targetControl": "SplitApp",
+						"subroutes": [{
+								"pattern": "splitApp/",
+								"name": "odetailpage",
+								"view": "odetailpage",
+								"targetAggregation": "detailPages"
+							},
+							{
+								"pattern": "itemDetail/",
+								"name": "odetailpage2",
+								"view": "odetailpage2",
+								"targetAggregation": "detailPages"
+							}
+						]
+					}]
+				}
+			],
+			"targets": {
+				"view1": {
+					"viewName": "View1",
+					"viewLevel": 1
+				}
+			}
+		}
+	}
+}
