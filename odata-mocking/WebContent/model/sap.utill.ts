@@ -23,6 +23,8 @@ namespace sap {
         xmlfragment(actionSheet: string, currentContext: any): any;
         table: any;
         commons: any;
+        getCore(): any;
+        require(dependencies: string[], callback: any): any;
     }
 
     interface UIMInterface {

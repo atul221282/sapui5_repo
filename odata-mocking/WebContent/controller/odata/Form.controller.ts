@@ -29,22 +29,21 @@ namespace controller {
             return this.ctrl.getView();
         }
 
-        async onInit(ctrl: any) {
+        onInit(ctrl: any) {
             this.ctrl = ctrl;
             const oForm = this.getView().byId("idSimpleForm");
             oForm.bindElement("Northwind>/Categories(2)");
 
-            // const oModel = new this.ODataModel({
-            //     serviceUrl: "https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc"
-            // });
+            const oModel = new this.ODataModel({
+                serviceUrl: "/destinations/northwind/V2/Northwind/NorthwindC.svc/"
+            });
 
-            // oModel.read("/Categories(2)", {
-            //     method: "GET",
-            //     success: (data: any) => console.dir(JSON.stringify(data)),
-            //     error: (err: any) => console.error(err)
-            // });
+            oModel.read("/Suppliers(2)", {
+                method: "GET",
+                success: (data: any) => console.dir(JSON.stringify(data)),
+                error: (error: any) => console.error(error)
+            });
         }
-
     }
 
     function formController(
@@ -59,6 +58,7 @@ namespace controller {
     ) {
         const gridDataTableClass = new FormClass(service, jsonModel, messageToast,
             busyIndicator, DateFormat, employeeService, odataModel);
+        // our exposed api
         const extendedController = controller.extend("worklist.controller.odata.Form", {
             onInit: function () { gridDataTableClass.onInit(this) }
         });

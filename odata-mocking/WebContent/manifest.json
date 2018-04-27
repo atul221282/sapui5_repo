@@ -106,7 +106,8 @@
 				"viewType": "XML",
 				"viewPath": "worklist.view",
 				"transition": "slide",
-				"clearTarget": false
+				"clearTarget": false,
+				"async": true
 			},
 			"routes": [{
 					"pattern": "",
