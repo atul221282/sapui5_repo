@@ -1,0 +1,23 @@
+<mvc:View controllerName="worklist.controller.odata.Form" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:u="sap.ui.unified" 
+    xmlns:c="sap.ui.core" 
+    xmlns:f="sap.ui.layout.form" 
+    xmlns="sap.m" height="100%">
+    <Page showHeader="false" enableScrolling="false" class="sapUiContentPadding">
+        <content>
+            <f:SimpleForm id="idSimpleForm">
+                <f:content>
+                    <Label text="Category Name"/>
+                    <Input value="{Northwind>CategoryName}" />
+                </f:content>
+            </f:SimpleForm>
+            <List items="{NorthwindC>/Suppliers}" headerText="Products">
+                <items>
+                    <ObjectListItem title="{NorthwindC>Name}" number="{NorthwindC>ID}" 
+                    intro="{NorthwindC>Address}"></ObjectListItem>
+                </items>
+            </List>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,40 @@
+<mvc:View controllerName="worklist.controller.odata.PersonLookup" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:model="sap.ui.model" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m">
+    <Table id="idProductsTable" inset="false" items="{
+			path: 'products>/data',
+			sorter: {
+				path: 'Name'
+			}
+		}">
+        <headerToolbar>
+            <Toolbar>
+                <Title text="Products" level="H2"/>
+                <ToolbarSpacer></ToolbarSpacer>
+                <Button icon="sap-icon://download" press="onDataExport" />
+            </Toolbar>
+        </headerToolbar>
+        <columns>
+            <Column id="productCol" width="12em">
+                <Text text="ID" />
+            </Column>
+            <Column id="supplierCol" minScreenWidth="Tablet" demandPopin="true">
+                <Text text="Name" />
+            </Column>
+            <Column id="dimensionsCol" minScreenWidth="Tablet" demandPopin="true" hAlign="End">
+                <Text text="Description" />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <ObjectIdentifier title="Some" text="{products>ID}" />
+                    <Text text="{products>Name}" />
+                    <Text text="{products>Description}" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</mvc:View>
