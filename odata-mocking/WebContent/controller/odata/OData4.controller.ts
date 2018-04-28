@@ -2,7 +2,7 @@ namespace controller {
 
     declare let console: any;
 
-    class FormClass {
+    class OData4Class {
         busyIndicator: any;
         dialog: any;
         MessageToast: any;
@@ -33,18 +33,25 @@ namespace controller {
 
         onInit(ctrl: any) {
             this.ctrl = ctrl;
-            const oForm = this.getView().byId("idSimpleForm");
+            const oJSONData = {
+                busy: false
+            };
+            const oModel = new this.JSONModel(oJSONData);
 
-            oForm.bindElement("Northwind>/Categories(2)");
-
-            const oModel = new this.ODataV4Model({
-                serviceUrl: "https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc/",
+            const oData = new this.ODataV4Model({
+                serviceUrl: "https://cors-anywhere.herokuapp.com/services.odata.org/TripPinRESTierService/(S(id))/",
+                autoExpandSelect: true,
+                operationMode: "Server",
+                groupId: "$direct",
                 synchronizationMode: "None"
             });
         }
+
+        onAfterRendering(e: any) {
+        }
     }
 
-    function formController(
+    function oData4FormController(
         controller: any,
         jsonModel: any,
         messageToast: any,
@@ -55,11 +62,12 @@ namespace controller {
         odataModel: any,
         odataV4Model: any
     ) {
-        const gridDataTableClass = new FormClass(service, jsonModel, messageToast,
+        const odata4 = new OData4Class(service, jsonModel, messageToast,
             busyIndicator, DateFormat, employeeService, odataModel, odataV4Model);
         // our exposed api
-        const extendedController = controller.extend("worklist.controller.odata.Form", {
-            onInit: function () { gridDataTableClass.onInit(this) }
+        const extendedController = controller.extend("worklist.controller.odata.OData4", {
+            onInit: function () { odata4.onInit(this) },
+            onAfterRendering: (e: any) => odata4.onAfterRendering(e)
         });
 
         return extendedController;
@@ -75,6 +83,6 @@ namespace controller {
         "../../service/employee-service",
         "sap/ui/model/odata/v2/ODataModel",
         "sap/ui/model/odata/v4/ODataModel"
-    ], formController);
+    ], oData4FormController);
 
 }

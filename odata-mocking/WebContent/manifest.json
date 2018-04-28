@@ -22,10 +22,17 @@
 				}
 			},
 			"NorthwindC": {
-				"uri": "/destinations/northwind/V2/Northwind/NorthwindC.svc/",
+				"uri": "https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0"
+				}
+			},
+			"TripService": {
+				"uri": "https://cors-anywhere.herokuapp.com/services.odata.org/TripPinRESTierService/(S(id))/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0"
 				}
 			}
 		}
@@ -90,6 +97,15 @@
 			},
 			"NorthwindC": {
 				"dataSource": "NorthwindC"
+			},
+			"TripService": {
+				"dataSource": "TripService",
+				"settings": {
+					"autoExpandSelect": true,
+					"operationMode": "Server",
+					"groupId": "$direct",
+					"synchronizationMode": "None"
+				}
 			}
 		},
 		"resources": {
@@ -152,6 +168,13 @@
 					"pattern": "odata/Form",
 					"name": "odata/Form",
 					"view": "odata/Form",
+					"targetControl": "app",
+					"targetAggregation": "pages"
+				},
+				{
+					"pattern": "odata/OData4",
+					"name": "odata/OData4",
+					"view": "odata/OData4",
 					"targetControl": "app",
 					"targetAggregation": "pages"
 				},
