@@ -1,0 +1,46 @@
+<mvc:View controllerName="worklist.controller.odata.OData4" 
+    xmlns="sap.m" 
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true">
+    <App busy="{appView>/busy}" class="sapUiSizeCompact">
+        <pages>
+            <Page title="OData V4">
+                <content>
+                    <Table id="peopleList" growing="true" growingThreshold="10" items="{
+							path: 'TripService>/People'
+						}">
+                        <columns>
+                            <Column id="userNameColumn">
+                                <Text text="UserName"/>
+                            </Column>
+                            <Column id="firstNameColumn">
+                                <Text text="FirstName"/>
+                            </Column>
+                            <Column id="lastNameColumn">
+                                <Text text="LastName"/>
+                            </Column>
+                            <Column id="ageColumn">
+                                <Text text="Age"/>
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Input value="{TripService>UserName}"/>
+                                </cells>
+                                <cells>
+                                    <Input value="{TripService>FirstName}"/>
+                                </cells>
+                                <cells>
+                                    <Input value="{TripService>LastName}"/>
+                                </cells>
+                                <cells>
+                                    <Input value="{TripService>Age}"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
