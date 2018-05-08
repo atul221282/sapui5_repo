@@ -1,0 +1,166 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "worklist",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"Northwind": {
+				"uri": "/destinations/northwind/V2/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"NorthwindC": {
+				"uri": "https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			},
+			"TripService": {
+				"uri": "https://cors-anywhere.herokuapp.com/services.odata.org/TripPinRESTierService/(S(id))/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "4.0"
+				}
+			},
+			"OData": {
+				"uri": "http://services.odata.org/V2/(S(kfnirabbzbrkz52pceq4rwu0))/OData/OData.svc/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0"
+				}
+			}
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "worklist.view.App",
+			"type": "XML",
+			"async": true,
+			"id": "app"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "worklist.i18n.i18n"
+				}
+			},
+			"Northwind": {
+				"dataSource": "Northwind",
+				"settings": {
+					"headers": {
+						"Access-Control-Allow-Origin": "*"
+					}
+				}
+			},
+			"NorthwindC": {
+				"dataSource": "NorthwindC"
+			},
+			"TripService": {
+				"dataSource": "TripService",
+				"settings": {
+					"autoExpandSelect": true,
+					"operationMode": "Server",
+					"groupId": "$direct",
+					"synchronizationMode": "None"
+				}
+			},
+			"OData": {
+				"dataSource": "OData"
+			}
+		},
+		"resources": {
+			"js": [{
+				"uri": "js/lodash.min.js"
+			}],
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "worklist.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"transition": "slide",
+				"async": true
+			},
+			"routes": [{
+					"pattern": "",
+					"name": "appHome",
+					"target": "grid"
+				},
+				{
+					"pattern": "view",
+					"name": "appHome",
+					"target": "view"
+				}
+			],
+			"targets": {
+				"grid": {
+					"viewId": "grid",
+					"viewName": "Grid",
+					"viewLevel": 1
+				},
+				"view": {
+					"viewId": "view",
+					"viewName": "View1",
+					"viewLevel": 2
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+/* Enter your custom styles here */
+
+button[data-mydata="Hello"]>span {
+    border: 1px solid pink !important;
+}
+
+.demoClass {
+    background-color: red !important;
+}

@@ -1,0 +1,8 @@
+--url to run the test
+http://localhost:9000/webcontent/test/unit/unitTests.qunit.html
+
+--odata service url
+"uri": "https://cors-anywhere.herokuapp.com/services.odata.org/Northwind/Northwind.svc",
+
+--run app with mock server
+http://localhost:9000/webcontent/test/mockServer.html#/odata/form

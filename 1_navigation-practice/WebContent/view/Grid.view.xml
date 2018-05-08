@@ -1,0 +1,35 @@
+<mvc:View controllerName="worklist.controller.Grid" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:u="sap.ui.unified" 
+    xmlns:c="sap.ui.core" 
+    xmlns="sap.m" height="100%">
+    <Page title="Grid One" showHeader="true" class="sapUiContentPadding">
+        <content>
+            <Table id="idProductsTable" inset="false" items="{
+			path: 'TripService>/todos',
+			sorter: {path: 'Name'}}">
+                <columns>
+                    <Column width="12em">
+                        <Text text="Url" />
+                    </Column>
+                    <Column minScreenWidth="Tablet" demandPopin="true">
+                        <Text text="Title" />
+                    </Column>
+                    <Column minScreenWidth="Desktop" demandPopin="true" hAlign="End">
+                        <Text text="Thumbnail Url" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Text text="{TripService>url}" />
+                            <Text text="{TripService>title}" />
+                            <Text text="{TripService>thumbnailUrl}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>
+
