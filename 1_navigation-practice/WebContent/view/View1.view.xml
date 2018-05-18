@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<mvc:View 
+    xmlns="sap.m" 
+    xmlns:l="sap.ui.layout" 
+    xmlns:mvc="sap.ui.core.mvc" controllerName="worklist.controller.View1">
+    <!-- <App id="app"><Text text="{/test/3/title}" /></App> -->
+    <App busy="{appView>/busy}" class="sapUiSizeCompact">
+        <pages>
+            <Page title="{Page>/name}">
+                <content>
+                    <Table id="todosTable" growing="true"  items="{
+							path: 'TripService>/todos', factory: '.populateItems'
+						}">
+                        <columns>
+                            <Column id="id" visible="false">
+                                <Text text="Id"/>
+                            </Column>
+                            <Column id="title">
+                                <Text text="Title"/>
+                            </Column>
+                            <Column id="url">
+                                <Text text="Url"/>
+                            </Column>
+                            <Column id="thumbnailUrl">
+                                <Text text="Thumbnail Url"/>
+                            </Column>
+                        </columns>
+                    </Table>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
